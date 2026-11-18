@@ -1,0 +1,396 @@
+/* Theme Color Palette */
+:root {
+    --bg-main: #f4f7fb;
+    --bg-card: #ffffff;
+    --text-primary: #1e293b;
+    --text-muted: #64748b;
+    --accent-blue: #2563eb;
+    --accent-blue-hover: #1d4ed8;
+    --border-light: #e2e8f0;
+    --high-bg: #fee2e2;
+    --high-text: #dc2626;
+    --med-bg: #fef3c7;
+    --med-text: #d97706;
+    --low-bg: #dcfce7;
+    --low-text: #16a34a;
+}
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.site-header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.25rem 1rem;
+    text-align: center;
+}
+
+.site-header h1 {
+    font-size: 1.65rem;
+    color: var(--accent-blue);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Two-Column Main Grid */
+.main-grid {
+    max-width: 1050px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+    flex: 1;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--bg-main);
+    padding-bottom: 0.5rem;
+}
+
+/* Mode Switcher Tabs */
+.mode-switcher {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 0.55rem 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border-light);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+    border-color: var(--accent-blue);
+}
+
+.mode-btn.active {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border-color: var(--accent-blue);
+}
+
+/* Circular SVG Countdown Timer */
+.timer-circle-container {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: #e2e8f0;
+    stroke-width: 12;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: var(--accent-blue);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 628;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.5s linear;
+}
+
+.timer-display {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#timeDisplay {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#currentModeText {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Timer Control Buttons */
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.control-btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--border-light);
+    background-color: #ffffff;
+    color: var(--text-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.control-btn:hover {
+    background-color: var(--bg-main);
+}
+
+.control-btn:active {
+    transform: scale(0.97);
+}
+
+.primary-btn {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border-color: var(--accent-blue);
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+/* Completed Session Counter */
+.session-tracker {
+    background-color: var(--bg-main);
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid var(--border-light);
+}
+
+.tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.badge-collection {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    min-height: 28px;
+    word-wrap: break-word;
+}
+
+/* Task Form Controls */
+.task-form {
+    margin-bottom: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-end;
+}
+
+input[type="text"],
+select {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.add-task-btn {
+    padding: 0.62rem 1.2rem;
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.2s ease;
+}
+
+.add-task-btn:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+.error-msg {
+    color: var(--high-text);
+    font-size: 0.82rem;
+    min-height: 1.1rem;
+}
+
+/* Task List Items & Priority Tags */
+.task-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background-color: #ffffff;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.task-checkbox:checked + .task-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.priority-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 12px;
+}
+
+.priority-High {
+    background-color: var(--high-bg);
+    color: var(--high-text);
+}
+
+.priority-Medium {
+    background-color: var(--med-bg);
+    color: var(--med-text);
+}
+
+.priority-Low {
+    background-color: var(--low-bg);
+    color: var(--low-text);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.delete-btn:hover {
+    color: var(--high-text);
+}
+
+/* Session Reference Table */
+.summary-table-wrapper h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.reference-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.reference-table th,
+.reference-table td {
+    border: 1px solid var(--border-light);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+}
+
+.reference-table th {
+    background-color: var(--bg-main);
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-light);
+    background-color: var(--bg-card);
+}
+
+/* Responsive Layout for Mobile Screens */
+@media (max-width: 768px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}

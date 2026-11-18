@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pomodoro Study Session Timer and Focus Task Manager">
+    <title>FocusFlow | Pomodoro Timer & Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="header-container">
+            <h1>FocusFlow Pomodoro</h1>
+            <p class="subtitle">CSE326 CA1 Project — Study Session Timer &amp; Focus Task Manager</p>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Grid -->
+    <main class="main-grid">
+
+        <!-- Left Column: Circular Countdown Timer & Session Counter -->
+        <section class="card timer-section" aria-labelledby="timer-heading">
+            <h2 id="timer-heading">Study Session Timer</h2>
+
+            <!-- Mode Switcher Buttons -->
+            <div class="mode-switcher" role="group" aria-label="Timer Modes">
+                <button type="button" class="mode-btn active" data-mode="pomodoro" data-minutes="25">
+                    Pomodoro (25m)
+                </button>
+                <button type="button" class="mode-btn" data-mode="shortBreak" data-minutes="5">
+                    Short Break (5m)
+                </button>
+                <button type="button" class="mode-btn" data-mode="longBreak" data-minutes="15">
+                    Long Break (15m)
+                </button>
+            </div>
+
+            <!-- SVG Circular Progress Ring -->
+            <div class="timer-circle-container">
+                <svg class="progress-ring" width="240" height="240">
+                    <circle
+                        class="progress-ring-bg"
+                        cx="120"
+                        cy="120"
+                        r="100"
+                    />
+                    <circle
+                        id="progressCircle"
+                        class="progress-ring-fill"
+                        cx="120"
+                        cy="120"
+                        r="100"
+                    />
+                </svg>
+                <div class="timer-display">
+                    <span id="timeDisplay">25:00</span>
+                    <small id="currentModeText">Focus Session</small>
+                </div>
+            </div>
+
+            <!-- Timer Action Controls -->
+            <div class="timer-controls">
+                <button type="button" id="startBtn" class="control-btn primary-btn">Start</button>
+                <button type="button" id="pauseBtn" class="control-btn">Pause</button>
+                <button type="button" id="resetBtn" class="control-btn">Reset</button>
+                <button type="button" id="skipBtn" class="control-btn">Skip</button>
+            </div>
+
+            <!-- Daily Completed Focus Cycles -->
+            <div class="session-tracker">
+                <div class="tracker-header">
+                    <span>Completed Daily Focus Cycles: <strong id="sessionCount">0</strong></span>
+                    <button type="button" id="clearCyclesBtn" class="text-btn">Reset Count</button>
+                </div>
+                <div id="badgeContainer" class="badge-collection">
+                    No cycles completed yet today. Finish a session to earn a focus badge!
+                </div>
+            </div>
+
+            <!-- Completion Chime Audio -->
+            <audio id="chimeAudio" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
+        </section>
+
+        <!-- Right Column: Daily Focus Task Manager -->
+        <section class="card task-section" aria-labelledby="task-heading">
+            <h2 id="task-heading">Daily Focus Tasks</h2>
+
+            <!-- Task Input Form -->
+            <form id="taskForm" class="task-form" novalidate>
+                <div class="form-group">
+                    <label for="taskInput">Task Name</label>
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="e.g., Revise CSE326 DOM Concepts"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prioritySelect">Priority Level</label>
+                        <select id="prioritySelect">
+                            <option value="High">High Priority</option>
+                            <option value="Medium" selected>Medium Priority</option>
+                            <option value="Low">Low Priority</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="add-task-btn">+ Add Task</button>
+                </div>
+
+                <p id="formError" class="error-msg" aria-live="polite"></p>
+            </form>
+
+            <!-- Dynamic Task List -->
+            <ul id="taskList" class="task-list"></ul>
+
+            <!-- Session Reference Table -->
+            <div class="summary-table-wrapper">
+                <h3>Session Reference Guide</h3>
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>Mode</th>
+                            <th>Duration</th>
+                            <th>Reward Badge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pomodoro Focus</td>
+                            <td>25 Minutes</td>
+                            <td>⭐ Focus Star</td>
+                        </tr>
+                        <tr>
+                            <td>Short Break</td>
+                            <td>5 Minutes</td>
+                            <td>☕ Quick Recharge</td>
+                        </tr>
+                        <tr>
+                            <td>Long Break</td>
+                            <td>15 Minutes</td>
+                            <td>🌿 Full Rest</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <p>CSE326 Internet Programming Laboratory | Group G6 CA1 Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
